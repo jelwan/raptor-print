@@ -1,0 +1,14 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 480px,
+        md: 640px,
+        lg: 992px,
+        xl: 1300px
+);
+$enable-rounded: false;
+
+$color-green: #42b983;
+
+@import '~bootstrap';
+@import '~bootstrap-vue';
+
