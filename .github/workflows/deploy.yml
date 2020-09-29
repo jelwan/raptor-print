@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "."
-        target: "~/raptor-print"
+        target: "/var/www/raptor-print"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -28,4 +28,4 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: cd "/raptor-print" && ls -la
+        script: ls /var/www/raptor-print
