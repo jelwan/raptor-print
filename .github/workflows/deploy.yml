@@ -28,4 +28,8 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: ls /var/www/raptor-print
+        script: |
+          cd /var/www/raptor-print
+          npm ci
+          npm i
+          npm run build
