@@ -18,6 +18,7 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
+        rm: true
         source: "."
         target: "/var/www/raptor-print"
 

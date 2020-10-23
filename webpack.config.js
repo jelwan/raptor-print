@@ -14,6 +14,14 @@ module.exports = {
         loader: "vue-loader"
       },
       {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
         test: /\.js$/,
         loader: "babel-loader",
         exclude: /node_modules\/(?!bootstrap-vue\/src\/)/,
