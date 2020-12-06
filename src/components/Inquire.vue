@@ -85,7 +85,7 @@ interface FormData {
 }
 
 @Component({
-  name: "Inquire",
+  name: "Inquire"
 })
 export default class Inquire extends Vue {
   constructor() {
@@ -108,11 +108,18 @@ export default class Inquire extends Vue {
     const postData = {
       email: this.form.email,
       name: this.form.name,
-      message: this.form.message,
+      message: this.form.message
     };
-    axios.post("http://localhost:8080/inquiry-email", postData).then((res) => {
-      console.log(res.data.body);
-    });
+    axios
+      .post("http://localhost:8080/inquiry-email", postData, {
+        headers: {}
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
     setTimeout(() => (this.submitting = false), 1000);
   }
 
