@@ -105,13 +105,12 @@ export default class Inquire extends Vue {
   public onSubmit(evt: Event): void {
     evt.preventDefault();
     this.submitting = true;
-    alert(JSON.stringify(this.form));
     const postData = {
       email: this.form.email,
       name: this.form.name,
       message: this.form.message,
     };
-    axios.post("localhost:8080/inquiry-email", postData).then((res) => {
+    axios.post("http://localhost:8080/inquiry-email", postData).then((res) => {
       console.log(res.data.body);
     });
     setTimeout(() => (this.submitting = false), 1000);
