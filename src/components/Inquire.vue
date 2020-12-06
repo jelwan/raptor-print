@@ -76,6 +76,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import axios from "axios";
 
 interface FormData {
   name: string;
@@ -105,6 +106,12 @@ export default class Inquire extends Vue {
     evt.preventDefault();
     this.submitting = true;
     alert(JSON.stringify(this.form));
+    const postData = { to_email: this.form.email, name: this.form.name, message: this.form.message };
+      axios
+        .post("localhost:8080/inquiry-email", postData)
+        .then(res => {
+          console.log(res.data.body);
+        });
     setTimeout(() => (this.submitting = false), 1000);
   }
 
