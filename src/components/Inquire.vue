@@ -107,7 +107,7 @@ export default class Inquire extends Vue {
     this.submitting = true;
     alert(JSON.stringify(this.form));
     const postData = {
-      to_Email: this.form.email,
+      Email: this.form.email,
       name: this.form.name,
       message: this.form.message,
     };
