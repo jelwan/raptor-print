@@ -111,7 +111,7 @@ export default class Inquire extends Vue {
       message: this.form.message
     };
     axios
-      .post("http://localhost:9001/inquire-email", postData, {
+      .post("localhost:9001/inquire-email", postData, {
         headers: {}
       })
       .then(res => {
