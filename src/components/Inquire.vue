@@ -105,17 +105,14 @@ export default class Inquire extends Vue {
   public onSubmit(evt: Event): void {
     evt.preventDefault();
     this.submitting = true;
-    const postData = {
-      email: this.form.email,
-      name: this.form.name,
-      message: this.form.message
-    };
     axios
-      .post("localhost:9001/inquire-email", postData, {
-        headers: {}
-      })
+      .post("vue.jelwan.com.au/inquire-email", {
+        email: this.form.email,
+        name: this.form.name,
+        message: this.form.message,
+        })
       .then(res => {
-        console.log(res);
+        this.submitting = false
       })
       .catch(err => {
         console.log(err.response);
